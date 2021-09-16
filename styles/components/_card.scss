@@ -1,0 +1,64 @@
+.card {
+  position: relative;
+  flex: 40%;
+  margin: 1rem;
+  border-radius: 12px;
+  overflow: hidden;
+
+  &__image-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+  }
+
+  &__title {
+    font-weight: 200;
+    padding: 0 2px;
+  }
+
+  &__date {
+    font-size: 16px;
+    font-weight: 200;
+    color: grey;
+    padding: 0 4px;
+  }
+
+  &__text {
+    padding: 6px;
+  }
+
+  @media (max-width: 800px) {
+    flex: 100%;
+    margin: 0.5rem;
+    padding-bottom: 1rem;
+  }
+
+  &__button-container {
+    width: 100%;
+    height: 25px;
+  }
+
+  &__like-container {
+    display: flex;
+  }
+
+  &__button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  &__animation {
+    visibility: hidden;
+    opacity: 0;
+    padding-left: 1rem;
+    transition: 0.2s ease;
+
+    &--animate {
+      visibility: visible;
+      opacity: 1;
+      transition: 0.2s ease;
+      color: rgb(109, 63, 139);
+    }
+  }
+}
