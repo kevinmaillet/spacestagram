@@ -1,10 +1,12 @@
-import { useContext } from 'react';
-import { siteContext } from '../context/siteContext';
+import React from 'react';
 import Card from '../components/Card';
+import { ImageTypes } from '../pages/index';
 
-const DisplayGrid = () => {
-  const { images } = useContext(siteContext);
+interface DisplayGridProps {
+  images: ImageTypes[];
+}
 
+const DisplayGrid: React.FC<DisplayGridProps> = ({ images }) => {
   const displayImages = images?.map((image) => {
     return (
       <Card

@@ -1,22 +1,25 @@
-import { useEffect, useContext } from 'react';
-import { siteContext, ImageTypes } from '../context/siteContext';
+import React from 'react';
 import { GetServerSideProps } from 'next';
 import axios from 'axios';
 import DisplayGrid from '../components/DisplayGrid';
 import Link from 'next/link';
+
+export interface ImageTypes {
+  copyright?: string;
+  date: string;
+  explanation: string;
+  hdurl: string;
+  media_type?: string;
+  service_version?: string;
+  title: string;
+  url: string;
+}
 
 interface HomeProps {
   data: ImageTypes[];
 }
 
 const HomePage: React.FC<HomeProps> = ({ data }) => {
-  const { setImages } = useContext(siteContext);
-
-  useEffect(() => {
-    setImages(data.filter((image) => image.media_type === 'image'));
-    // eslint-disable-next-line react-hooks/exhaustive-depss
-  }, []);
-
   return (
     <>
       <header className="header">
@@ -29,7 +32,9 @@ const HomePage: React.FC<HomeProps> = ({ data }) => {
           Your source for out-of-this-world photos.
         </h2>
       </header>
-      <DisplayGrid />
+      <DisplayGrid
+        images={data.filter((image) => image.media_type === 'image')}
+      />
     </>
   );
 };
