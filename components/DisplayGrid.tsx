@@ -1,7 +1,6 @@
 import { useContext } from 'react';
-import { siteContext, ImageTypes } from '../context/siteContext';
+import { siteContext } from '../context/siteContext';
 import Card from '../components/Card';
-import { urlObjectKeys } from 'next/dist/shared/lib/utils';
 
 const DisplayGrid = () => {
   const { images } = useContext(siteContext);
@@ -9,6 +8,7 @@ const DisplayGrid = () => {
   const displayImages = images?.map((image) => {
     return (
       <Card
+        key={image.title}
         url={image.url}
         title={image.title}
         summary={image.explanation}
@@ -17,7 +17,6 @@ const DisplayGrid = () => {
     );
   });
 
-  console.log(images);
   return <main className="display-grid">{displayImages}</main>;
 };
 

@@ -14,6 +14,7 @@ const HomePage: React.FC<HomeProps> = ({ data }) => {
 
   useEffect(() => {
     setImages(data.filter((image) => image.media_type === 'image'));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -35,8 +36,8 @@ const HomePage: React.FC<HomeProps> = ({ data }) => {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   let today = new Date();
-  let tenDaysAgo = new Date(today);
-  tenDaysAgo.setDate(tenDaysAgo.getDate() - 20);
+  let twentyDaysAgo = new Date(today);
+  twentyDaysAgo.setDate(twentyDaysAgo.getDate() - 20);
 
   const formatDate = (date: Date) => {
     var dd = String(date.getDate()).padStart(2, '0');
@@ -46,8 +47,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     return yyyy + '-' + mm + '-' + dd;
   };
 
-  // let todayFormatted = formatDate(today);
-  let twentyDaysAgoFormatted = formatDate(tenDaysAgo);
+  let twentyDaysAgoFormatted = formatDate(twentyDaysAgo);
 
   const api = process.env.NASA_API_KEY;
 

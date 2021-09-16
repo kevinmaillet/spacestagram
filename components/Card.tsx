@@ -27,7 +27,7 @@ const Card: React.FC<CardProps> = ({ url, title, summary, date }) => {
   return (
     <article className="card">
       <div className="card__image-container">
-        <a href={url} target="_blank">
+        <a href={url} target="_blank" rel="noreferrer">
           <Image
             src={url}
             alt={title}
