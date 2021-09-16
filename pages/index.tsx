@@ -14,7 +14,7 @@ const HomePage: React.FC<HomeProps> = ({ data }) => {
 
   useEffect(() => {
     setImages(data.filter((image) => image.media_type === 'image'));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-depss
   }, []);
 
   return (
