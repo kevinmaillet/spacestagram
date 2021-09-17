@@ -33,7 +33,7 @@ const HomePage: React.FC<HomeProps> = ({ data }) => {
         </h2>
       </header>
       <DisplayGrid
-        images={data.filter((image) => image.media_type === 'image')}
+        images={data.filter((image) => image.media_type === 'image').reverse()}
       />
     </>
   );
