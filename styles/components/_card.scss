@@ -1,6 +1,7 @@
 .card {
   position: relative;
   flex: 40%;
+  flex-grow: 0;
   margin: 1rem;
   border-radius: 12px;
   overflow: hidden;

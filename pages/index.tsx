@@ -41,8 +41,8 @@ const HomePage: React.FC<HomeProps> = ({ data }) => {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   let today = new Date();
-  let twentyDaysAgo = new Date(today);
-  twentyDaysAgo.setDate(twentyDaysAgo.getDate() - 20);
+  let thirtyDaysAgo = new Date(today);
+  thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
 
   const formatDate = (date: Date) => {
     var dd = String(date.getDate()).padStart(2, '0');
@@ -52,12 +52,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     return yyyy + '-' + mm + '-' + dd;
   };
 
-  let twentyDaysAgoFormatted = formatDate(twentyDaysAgo);
+  let thirtyDaysAgoFormatted = formatDate(thirtyDaysAgo);
 
   const api = process.env.NASA_API_KEY;
 
   const res = await axios.get(
-    `https://api.nasa.gov/planetary/apod?start_date=${twentyDaysAgoFormatted}&api_key=${api}`
+    `https://api.nasa.gov/planetary/apod?start_date=${thirtyDaysAgoFormatted}&api_key=${api}`
   );
   const data = res.data;
 
